@@ -221,6 +221,20 @@ namespace Djn.Crm5
 			return this;
 		}
 
+//Added paging ability to keep querry from going insane when doing web developement
+        public CrmQuery Page(int maxRecords, int maxPages)
+        {
+            PagingInfo page = new PagingInfo();
+
+            page.Count = maxRecords;
+            page.PageNumber = maxPages;
+
+            m_query.PageInfo = page;
+
+
+            return this;
+        }
+
 	} // class
 	class InvalidStateException : Exception {
 		public InvalidStateException( string message ) : base( message ) {
