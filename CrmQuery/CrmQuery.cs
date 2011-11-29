@@ -135,7 +135,8 @@ namespace Djn.Crm5
 #if CRM4
 			ce.Values = in_values;
 #else
-            foreach (object item in in_values) {
+            if(in_values != null)
+foreach (object item in in_values) {
                 ce.Values.Add(item);
             }
 #endif
